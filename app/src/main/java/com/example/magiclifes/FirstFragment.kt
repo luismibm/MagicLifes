@@ -19,6 +19,13 @@ class FirstFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private var lifeP1: Int = 0
+    private var poisonP1: Int = 0
+    private var lifeP2: Int = 20
+    private var poisonP2: Int = 0
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,8 +36,92 @@ class FirstFragment : Fragment() {
 
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lifeP1 = 20
+        poisonP1 = 0
+        lifeP2 = 20
+        poisonP2 = 0
+
+        if (savedInstanceState != null) {
+            lifeP1 = savedInstanceState.getInt("lifeP1")
+            poisonP1 = savedInstanceState.getInt("poisonP1")
+            refresh()
+        }
+
+
+        // Player 1 Button Functionality
+        binding.buttonP1LifeIncrement.setOnClickListener {
+            lifeP1++
+            refresh()
+        }
+
+        binding.buttonP1LifeDecrement.setOnClickListener {
+            lifeP1--
+            refresh()
+        }
+
+        binding.buttonP1PoisonIncrement.setOnClickListener {
+            poisonP1++
+            refresh()
+        }
+
+        binding.buttonP1PoisonDecrement.setOnClickListener {
+            poisonP1--
+            refresh()
+        }
+
+
+        // Player 2 Button Functionality
+        binding.buttonP2LifeIncrement.setOnClickListener {
+            lifeP2++
+            refresh()
+        }
+
+        binding.buttonP2LifeDecrement.setOnClickListener {
+            lifeP2--
+            refresh()
+        }
+
+        binding.buttonP2PoisonIncrement.setOnClickListener {
+            poisonP2++
+            refresh()
+        }
+
+        binding.buttonP2PoisonDecrement.setOnClickListener {
+            poisonP2--
+            refresh()
+        }
+
+
+        // Middle Buttons
+        binding.PassFromP2ToP1.setOnClickListener {
+            lifeP2--
+            lifeP1++
+            refresh()
+        }
+
+        binding.PassFromP1ToP2.setOnClickListener {
+            lifeP1--
+            lifeP2++
+            refresh()
+        }
+
+
+
+    }
+
+    fun refresh() {
+        binding.CounterP1.text = "$lifeP1/$poisonP1"
+        binding.CounterP2.text = "$lifeP2/$poisonP2"
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("lifeP1", lifeP1)
+        super.onSaveInstanceState(outState)
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <Button
+            android:id="@+id/buttonP1PoisonIncrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P +"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonP1PoisonDecrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P -"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/CounterP1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20/0"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toTopOf="@+id/PassFromP2ToP1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/buttonP1LifeIncrement"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@android:drawable/btn_star_big_on"
+            app:layout_constraintBottom_toTopOf="@+id/PassFromP2ToP1"
+            app:layout_constraintEnd_toEndOf="@+id/buttonP1PoisonIncrement"
+            app:layout_constraintStart_toStartOf="@+id/buttonP1PoisonIncrement"
+            app:layout_constraintTop_toBottomOf="@+id/buttonP1PoisonIncrement" />
+
+        <ImageButton
+            android:id="@+id/buttonP2LifeIncrement"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@android:drawable/btn_star_big_on"
+            app:layout_constraintBottom_toTopOf="@+id/buttonP2PoisonIncrement"
+            app:layout_constraintEnd_toEndOf="@+id/buttonP2PoisonIncrement"
+            app:layout_constraintStart_toStartOf="@+id/buttonP2PoisonIncrement"
+            app:layout_constraintTop_toBottomOf="@+id/PassFromP1ToP2" />
+
+        <ImageButton
+            android:id="@+id/buttonP1LifeDecrement"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@android:drawable/btn_star_big_off"
+            app:layout_constraintBottom_toTopOf="@+id/PassFromP2ToP1"
+            app:layout_constraintEnd_toEndOf="@+id/buttonP1PoisonDecrement"
+            app:layout_constraintStart_toStartOf="@+id/buttonP1PoisonDecrement"
+            app:layout_constraintTop_toBottomOf="@+id/buttonP1PoisonDecrement" />
+
+        <ImageButton
+            android:id="@+id/buttonP2LifeDecrement"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@android:drawable/btn_star_big_off"
+            app:layout_constraintBottom_toTopOf="@+id/buttonP2PoisonDecrement"
+            app:layout_constraintEnd_toEndOf="@+id/buttonP2PoisonDecrement"
+            app:layout_constraintStart_toStartOf="@+id/buttonP2PoisonDecrement"
+            app:layout_constraintTop_toBottomOf="@+id/PassFromP1ToP2" />
+
+        <ImageButton
+            android:id="@+id/PassFromP2ToP1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_up_float"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/PassFromP1ToP2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/arrow_down_float"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <Button
+            android:id="@+id/buttonP2PoisonIncrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P +"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonP2PoisonDecrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P -"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/CounterP2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20/0"
+            android:textSize="48sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PassFromP1ToP2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
