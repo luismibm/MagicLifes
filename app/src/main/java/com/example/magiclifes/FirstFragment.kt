@@ -21,7 +21,7 @@ class FirstFragment : Fragment() {
 
     private var lifeP1: Int = 0
     private var poisonP1: Int = 0
-    private var lifeP2: Int = 20
+    private var lifeP2: Int = 0
     private var poisonP2: Int = 0
 
 
@@ -60,7 +60,8 @@ class FirstFragment : Fragment() {
         }
 
         binding.buttonP1LifeDecrement.setOnClickListener {
-            lifeP1--
+            if (lifeP1 > 0)
+                lifeP1--
             refresh()
         }
 
@@ -70,7 +71,8 @@ class FirstFragment : Fragment() {
         }
 
         binding.buttonP1PoisonDecrement.setOnClickListener {
-            poisonP1--
+            if (poisonP1 > 0)
+                poisonP1--
             refresh()
         }
 
@@ -82,7 +84,8 @@ class FirstFragment : Fragment() {
         }
 
         binding.buttonP2LifeDecrement.setOnClickListener {
-            lifeP2--
+            if (lifeP2 > 0)
+                lifeP2--
             refresh()
         }
 
@@ -92,25 +95,28 @@ class FirstFragment : Fragment() {
         }
 
         binding.buttonP2PoisonDecrement.setOnClickListener {
-            poisonP2--
+            if (poisonP2 > 0)
+                poisonP2--
             refresh()
         }
 
 
         // Middle Buttons
         binding.PassFromP2ToP1.setOnClickListener {
-            lifeP2--
-            lifeP1++
-            refresh()
+            if (lifeP2 > 0) {
+                lifeP2--
+                lifeP1++
+                refresh()
+            }
         }
 
         binding.PassFromP1ToP2.setOnClickListener {
-            lifeP1--
-            lifeP2++
-            refresh()
+            if (lifeP1 > 0) {
+                lifeP1--
+                lifeP2++
+                refresh()
+            }
         }
-
-
 
     }
 
