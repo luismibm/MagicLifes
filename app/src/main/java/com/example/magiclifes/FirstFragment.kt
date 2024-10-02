@@ -25,7 +25,6 @@ class FirstFragment : Fragment() {
     private var poisonP2: Int = 0
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +34,6 @@ class FirstFragment : Fragment() {
         return binding.root
 
     }
-
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,6 +47,8 @@ class FirstFragment : Fragment() {
         if (savedInstanceState != null) {
             lifeP1 = savedInstanceState.getInt("lifeP1")
             poisonP1 = savedInstanceState.getInt("poisonP1")
+            lifeP2 = savedInstanceState.getInt("lifeP2")
+            poisonP2 = savedInstanceState.getInt("poisonP2")
             refresh()
         }
 
@@ -120,15 +120,22 @@ class FirstFragment : Fragment() {
 
     }
 
+
     fun refresh() {
         binding.CounterP1.text = "$lifeP1/$poisonP1"
         binding.CounterP2.text = "$lifeP2/$poisonP2"
     }
 
+
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("lifeP1", lifeP1)
+        outState.putInt("lifeP2", lifeP2)
+        outState.putInt("poisonP1", poisonP1)
+        outState.putInt("poisonP2", poisonP2)
         super.onSaveInstanceState(outState)
+        // Esto permite que los datos se mantengan al girar la pantalla
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -12,17 +12,11 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
-
         <Button
             android:id="@+id/buttonP1PoisonIncrement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#8BC34A"
             android:text="P +"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,9 +25,10 @@
             android:id="@+id/buttonP1PoisonDecrement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#8BC34A"
             android:text="P -"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/CounterP1"
@@ -41,8 +36,8 @@
             android:layout_height="wrap_content"
             android:text="20/0"
             android:textSize="48sp"
-            app:layout_constraintBottom_toTopOf="@+id/PassFromP2ToP1"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/PassFromP2ToP1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,72 +45,80 @@
             android:id="@+id/buttonP1LifeIncrement"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@android:drawable/btn_star_big_on"
-            app:layout_constraintBottom_toTopOf="@+id/PassFromP2ToP1"
-            app:layout_constraintEnd_toEndOf="@+id/buttonP1PoisonIncrement"
-            app:layout_constraintStart_toStartOf="@+id/buttonP1PoisonIncrement"
-            app:layout_constraintTop_toBottomOf="@+id/buttonP1PoisonIncrement" />
+            android:src="@drawable/baseline_favorite_24"
+            android:tint="#F44336"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonP1PoisonIncrement"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toEndOf="@+id/buttonP1PoisonIncrement"
+            app:layout_constraintTop_toTopOf="@+id/buttonP1PoisonIncrement" />
 
         <ImageButton
             android:id="@+id/buttonP2LifeIncrement"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@android:drawable/btn_star_big_on"
-            app:layout_constraintBottom_toTopOf="@+id/buttonP2PoisonIncrement"
-            app:layout_constraintEnd_toEndOf="@+id/buttonP2PoisonIncrement"
-            app:layout_constraintStart_toStartOf="@+id/buttonP2PoisonIncrement"
-            app:layout_constraintTop_toBottomOf="@+id/PassFromP1ToP2" />
+            android:src="@drawable/baseline_favorite_24"
+            android:tint="#F44336"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonP2PoisonIncrement"
+            app:layout_constraintEnd_toStartOf="@+id/buttonP2PoisonIncrement"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/buttonP2PoisonIncrement" />
 
         <ImageButton
             android:id="@+id/buttonP1LifeDecrement"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@android:drawable/btn_star_big_off"
-            app:layout_constraintBottom_toTopOf="@+id/PassFromP2ToP1"
-            app:layout_constraintEnd_toEndOf="@+id/buttonP1PoisonDecrement"
-            app:layout_constraintStart_toStartOf="@+id/buttonP1PoisonDecrement"
-            app:layout_constraintTop_toBottomOf="@+id/buttonP1PoisonDecrement" />
+            android:src="@drawable/baseline_favorite_border_24"
+            android:tint="#F44336"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonP1PoisonDecrement"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toEndOf="@+id/buttonP1PoisonDecrement"
+            app:layout_constraintTop_toTopOf="@+id/buttonP1PoisonDecrement"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/buttonP2LifeDecrement"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@android:drawable/btn_star_big_off"
-            app:layout_constraintBottom_toTopOf="@+id/buttonP2PoisonDecrement"
-            app:layout_constraintEnd_toEndOf="@+id/buttonP2PoisonDecrement"
-            app:layout_constraintStart_toStartOf="@+id/buttonP2PoisonDecrement"
-            app:layout_constraintTop_toBottomOf="@+id/PassFromP1ToP2" />
+            android:src="@drawable/baseline_favorite_border_24"
+            android:tint="#F44336"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonP2PoisonDecrement"
+            app:layout_constraintEnd_toStartOf="@+id/buttonP2PoisonDecrement"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/buttonP2PoisonDecrement" />
 
         <ImageButton
             android:id="@+id/PassFromP2ToP1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:src="@android:drawable/arrow_up_float"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/buttonP1LifeDecrement"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/buttonP1LifeIncrement"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/PassFromP1ToP2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:src="@android:drawable/arrow_down_float"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+            app:layout_constraintBottom_toTopOf="@+id/buttonP2LifeDecrement"
+            app:layout_constraintStart_toEndOf="@+id/PassFromP2ToP1"
+            app:layout_constraintTop_toBottomOf="@+id/buttonP2LifeIncrement" />
 
         <Button
             android:id="@+id/buttonP2PoisonIncrement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#8BC34A"
             android:text="P +"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonP2PoisonDecrement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#8BC34A"
             android:text="P -"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -128,8 +131,15 @@
             android:textSize="48sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PassFromP1ToP2" />
+            app:layout_constraintStart_toEndOf="@+id/PassFromP1ToP2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
